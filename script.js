@@ -33,10 +33,18 @@ function playr() {
   myAudio.play();
 }
 
+function instruc() {
+  const myAudio = new Audio("ethans_instructions.mp3");
+  myAudio.play();
+}
+
 function playr2() {
   const myAudio = new Audio("game_over.wav");
   myAudio.play();
 }
+
+
+
 
 // function collisionSound() {
 //   //all audio elements are instantiated here
@@ -133,6 +141,7 @@ function draw() {
     if (q > paddleX && q < paddleX + paddleWidth) {
       dw = -dw;
       score++;
+      //play collision sound on impact
       playr2();
     }
   }
@@ -147,6 +156,8 @@ function draw() {
     if (x > paddleX && x < paddleX + paddleWidth) {
       dy = -dy + -dy * 0.035;
       score = score + 5;
+     //play collision sound on impact
+
       playr();
     } else {
       alert("GAME OVER");
@@ -170,4 +181,9 @@ function draw() {
 
 let interval = setInterval(draw, 10);
 
-//<audio src="collision.mp3" id="myAudioTag"></audio>
+
+
+
+
+
+

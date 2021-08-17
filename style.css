@@ -3,7 +3,38 @@
   margin: 0;
 }
 canvas {
-  background: rgb(212, 212, 212);
+  background: rgba(138, 138, 138, 0.616);
   display: block;
   margin: 0 auto;
+}
+
+
+.menu{
+
+  padding: 20px;
+}
+
+
+body {
+  background-color: rgb(223, 223, 223);
+}
+
+#musicPlayer {
+
+  margin: auto;
+  display: block;
+  
+
+
+}
+
+#restartGame {
+
+  margin: auto;
+  display: block;
+}
+
+.left{
+
+  
 }

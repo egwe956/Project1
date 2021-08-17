@@ -2,18 +2,27 @@
 <html>
   <head>
     <head>
-      <link rel="stylesheet" href="style.css" />
+      
+    <link rel="stylesheet" href="style.css" />
+      <!-- CSS only -->
     </head>
     <meta charset="utf-8" />
     <title>Kid Pong</title>
   </head>
   <body>
-    <canvas id="pongCanvas" width="960" height="540"></canvas>
-    <button id="musicPlayer" onclick="playr();">Turn Audio On</button>
-    <button id="restart game" onclick="document.location.reload();">
-      Restart Game
-    </button>
+    <div class="left">
 
+
+    </div>
+    <canvas id="pongCanvas" width="960" height="540"></canvas>
+  <div class= "menu">
+    <button id="musicPlayer" onclick="instruc();"type="button" class="btn btn-primary btn-lg">Turn Audio On</button>
+    <button id="restartGame" onclick="document.location.reload();" type="button" class="btn btn-primary btn-lg">Restart Game
+  </button>
+    
+  </div>
+   
     <script src="script.js"></script>
   </body>
 </html>
+
