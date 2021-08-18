@@ -4,6 +4,8 @@ const ctx = canvas.getContext("2d");
 const paddleHeight = 10;
 const paddleWidth = 140;
 let paddleX = (canvas.width - paddleWidth) / 2;
+//top paddle
+let paddleY = (canvas.width - paddleWidth) / 2;
 //ball size
 const radiusBall = 10;
 //canvas parameters
@@ -23,7 +25,8 @@ let dy = -2.8;
 let dq = 1.7;
 let dw = -1.7;
 //scoring variables
-let score = 0;
+let redScore = 0;
+let blueScore = 0;
 //event listener for user controls
 //audio variables
 
@@ -34,9 +37,10 @@ function playr() {
 }
 
 function instruc() {
-  const myAudio = new Audio("ethans_instructions.mp3");
+  const myAudio = new Audio("main_ost.mp3");
   myAudio.play();
 }
+
 
 function playr2() {
   const myAudio = new Audio("game_over.wav");
@@ -87,10 +91,15 @@ function keyUpHandler(e) {
 //start of function to allow game music to play
 //end of function to allow game music to play
 
-function drawScore() {
+function drawRedScore() {
   ctx.font = "32px Arial";
-  ctx.fillStyle = "#151111";
-  ctx.fillText("Score: " + score, 30, 60);
+  ctx.fillStyle = "#B50A0A";
+  ctx.fillText("Score: " + redScore, 30, 110);
+}
+function drawBlueScore() {
+  ctx.font = "32px Arial";
+  ctx.fillStyle = "#1D7EEE";
+  ctx.fillText("Score: " + blueScore, 30, 60);
 }
 function drawBall() {
   ctx.beginPath();
@@ -116,20 +125,71 @@ function drawPaddle() {
   ctx.closePath();
 }
 
+function drawTopPaddle() {
+  ctx.beginPath();
+  ctx.rect(paddleY, 0, paddleWidth, paddleHeight);
+  ctx.fillStyle = "#1D7EEE";
+  ctx.fill();
+  ctx.closePath();
+}
+
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   drawBallTwo();
   drawBall();
   drawPaddle();
-  drawScore();
+  drawTopPaddle();
+  drawRedScore();
+  drawBlueScore();
   x += dx;
   y += dy;
 
   q += dq;
   w += dw;
 
-  //orange ball collision
+
+
+
+
+
+
+
+
+  //orange ball collision on blue top paddle
+
+    if (q + dq > canvas.width - radiusBall || q + dq < radiusBall) {
+      dq = -dq;
+    }
+    if (w + dw < radiusBall) {
+      dw = -dw;
+    }
+    if (w + dw > canvas.height - radiusBall) {
+      if (q > paddleY && q < paddleY + paddleWidth) {
+        dw = -dw;
+        blueScore++;
+        //play collision sound on impact
+        playr2();
+      }
+    }
+    //brown ball collision on blue top paddle
+    if (x + dx > canvas.width - radiusBall || x + dx < radiusBall) {
+      dx = -dx;
+    }
+    if (y + dy < radiusBall) {
+      dy = -dy;
+    }
+    if (y + dy > canvas.height - radiusBall) {
+      if (x > paddleY && x < paddleY + paddleWidth) {
+        dy = -dy + -dy * 0.035;
+        blueScore = blueScore + 5;
+       //play collision sound on impact
+  
+        playr();
+      } 
+    }
+
+  //orange ball collision on red paddle
 
   if (q + dq > canvas.width - radiusBall || q + dq < radiusBall) {
     dq = -dq;
@@ -140,12 +200,12 @@ function draw() {
   if (w + dw > canvas.height - radiusBall) {
     if (q > paddleX && q < paddleX + paddleWidth) {
       dw = -dw;
-      score++;
+      redScore++;
       //play collision sound on impact
       playr2();
     }
   }
-  //brown ball collision
+  //brown ball collision on red paddle
   if (x + dx > canvas.width - radiusBall || x + dx < radiusBall) {
     dx = -dx;
   }
@@ -155,7 +215,7 @@ function draw() {
   if (y + dy > canvas.height - radiusBall) {
     if (x > paddleX && x < paddleX + paddleWidth) {
       dy = -dy + -dy * 0.035;
-      score = score + 5;
+      redScore = redScore + 5;
      //play collision sound on impact
 
       playr();
@@ -167,14 +227,14 @@ function draw() {
   }
 
   if (rightPressed) {
-    paddleX += 9;
-    if (paddleX + paddleWidth > canvas.width) {
-      paddleX = canvas.width - paddleWidth;
+    paddleY += 9;
+    if (paddleY + paddleWidth > canvas.width) {
+      paddleY = canvas.width - paddleWidth;
     }
   } else if (leftPressed) {
-    paddleX -= 9;
-    if (paddleX < 0) {
-      paddleX = 0;
+    paddleY -= 9;
+    if (paddleY < 0) {
+      paddleY = 0;
     }
   }
 }
