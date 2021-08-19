@@ -21,18 +21,21 @@ The other issue I had was also to get sound into the game.
 
 For the red paddle:
 
-1. Get as many paddle hits as you can.
-2. Brown ball scores 5 points and moves faster every time you hit it.
-3. Orange ball scores 1 point but does not accelerate at all.
-4. Use mouse to control red paddle, and keyboard left and right arrow keys to control blue paddle.
-   For the blue paddle:
-5. Get as many paddle hits as you can.
-   1a. The blue paddle will count its score regardless of whether the blue paddle strikes the ball.
-   1b However, the blue paddle has a handicap, it will only earn 4 points for the brown ball, and 1 point for the orange ball.
-6. Brown ball scores 4 points and moves faster every time you hit it.
-7. Orange ball scores 1 point but does not accelerate at all.
-8. Use mouse to control red paddle, and keyboard left and right arrow keys to control blue paddle.
+- Get as many paddle hits as you can.
+- Brown ball scores 5 points and moves faster every time you hit it.
+- Orange ball scores 1 point but does not accelerate at all.
+- Use mouse to control red paddle, and keyboard left and right arrow keys to control blue paddle.
+  For the blue paddle:
+- Get as many paddle hits as you can.
+- The blue paddle will count its score regardless of whether the blue paddle strikes the ball.
+- However, the blue paddle has a handicap, it will only earn 4 points for the brown ball, and 1 point for the orange ball.
+- Brown ball scores 4 points and moves faster every time you hit it.
+- Orange ball scores 1 point but does not accelerate at all.
+- Use mouse to control red paddle, and keyboard left and right arrow keys to control blue paddle.
 
-   #Section 5 - Known Bugs
+            ##GAME OVER CONDITION##
+
+- Game is over if the brown ball falls outside the canvas. If the orange ball falls out of the canvas, the game will not be over.
+  #Section 5 - Known Bugs
 
 The orange ball does not get destroyed when it falls below the red paddle

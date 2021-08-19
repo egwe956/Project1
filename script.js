@@ -58,6 +58,15 @@ function ping() {
   myAudio.play();
 }
 
+// function highScore() {
+//   if (redScore === 5) {
+//     const myAudio = new Audio("highscore_new.mp3");
+//     myAudio.loop = false;
+
+//     myAudio.play();
+//   }
+// }
+
 // function collisionSound() {
 //   //all audio elements are instantiated here
 //   let collisionSound =
@@ -169,6 +178,7 @@ function draw() {
   drawTopPaddle();
   drawRedScore();
   drawBlueScore();
+  //highScore();
 
   x += dx;
   y += dy;
@@ -246,5 +256,4 @@ function draw() {
     }
   }
 }
-
 let interval = setInterval(draw, 10);
