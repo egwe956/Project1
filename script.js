@@ -48,22 +48,15 @@ function instruc() {
   myAudio.play();
 }
 
-
 function playr2() {
   const myAudio = new Audio("game_over.wav");
   myAudio.play();
 }
 
-
 function ping() {
   const myAudio = new Audio("pling.mp3");
   myAudio.play();
 }
-
-
-
-
-
 
 // function collisionSound() {
 //   //all audio elements are instantiated here
@@ -148,16 +141,13 @@ function drawTopPaddle() {
   ctx.closePath();
 }
 
-
-
-
-function bounce(){
+function bounce() {
   if (q + dq > canvas.width - radiusBall || q + dq < radiusBall) {
     dq = -dq;
   }
   if (w + dw < radiusBall) {
     dw = -dw;
-    blueScore ++
+    blueScore++;
     ping();
   }
   if (x + dx > canvas.width - radiusBall || x + dx < radiusBall) {
@@ -179,84 +169,70 @@ function draw() {
   drawTopPaddle();
   drawRedScore();
   drawBlueScore();
-  
+
   x += dx;
   y += dy;
 
   q += dq;
   w += dw;
 
-
-//test codes
-
-
+  //test codes
 
   //orange ball collision on blue top paddle
 
-   
-    // if (w + dw > canvas.height - radiusBall){
-     
-    //   if (q > paddleY && q < paddleY + paddleWidth) {
-    //     dw = -dw;
-    //     blueScore++;
-    //     //play collision sound on impact
-    //     playr2();
-    //   }
-    // }
-    
-   // brown ball collision on blue top paddle
- 
-    // if (y + dy < 0 - radiusBall) {
-    //   if (x > paddleY.height && x < paddleY.height + paddleWidth) {
-    //    // dy = -dy;
-    //     blueScore = blueScore + 5;
-    //    //play collision sound on impact
-  
-    //     playr();
-    //   } 
-    // }
+  // if (w + dw > canvas.height - radiusBall){
 
+  //   if (q > paddleY && q < paddleY + paddleWidth) {
+  //     dw = -dw;
+  //     blueScore++;
+  //     //play collision sound on impact
+  //     playr2();
+  //   }
+  // }
+
+  // brown ball collision on blue top paddle
+
+  // if (y + dy < 0 - radiusBall) {
+  //   if (x > paddleY.height && x < paddleY.height + paddleWidth) {
+  //    // dy = -dy;
+  //     blueScore = blueScore + 5;
+  //    //play collision sound on impact
+
+  //     playr();
+  //   }
+  // }
 
   //test code
-//   if( y + dy < 0) {
-    
-//     blueScore = blueScore + 5;
-// }
+  //   if( y + dy < 0) {
 
+  //     blueScore = blueScore + 5;
+  // }
 
- //orange ball collision on red paddle
+  //orange ball collision on red paddle
 
-
-if (w + dw > canvas.height - radiusBall) {
-  if (q > paddleX && q < paddleX + paddleWidth) {
-    dw = -dw;
-    redScore++;
-    //play collision sound on impact
-    playr2();
+  if (w + dw > canvas.height - radiusBall) {
+    if (q > paddleX && q < paddleX + paddleWidth) {
+      dw = -dw;
+      redScore++;
+      //play collision sound on impact
+      playr2();
+    }
   }
-}
-//brown ball collision on red paddle
+  //brown ball collision on red paddle
 
-if (y + dy > canvas.height - radiusBall) {
-  if (x > paddleX && x < paddleX + paddleWidth) {
-    dy = -dy + -dy * 0.028;
-    redScore = redScore + 5;
-   //play collision sound on impact
+  if (y + dy > canvas.height - radiusBall) {
+    if (x > paddleX && x < paddleX + paddleWidth) {
+      dy = -dy + -dy * 0.028;
+      redScore = redScore + 5;
+      //play collision sound on impact
 
-    playr();
-  } else {
-    alert("GAME OVER");
-    document.location.reload();
-    clearInterval(interval);
-   }
-}
-
-
-
-
-
-
- 
+      playr();
+    } else {
+      alert("GAME OVER");
+      document.location.reload();
+      clearInterval(interval);
+    }
+  }
 
   if (rightPressed) {
     paddleY += 9;
@@ -272,10 +248,3 @@ if (y + dy > canvas.height - radiusBall) {
 }
 
 let interval = setInterval(draw, 10);
-
-
-
-
-
-
-
